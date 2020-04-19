@@ -128,9 +128,12 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-## autoenv
-#.autoenv.leave
-#.autoenv
+# autoenv
+.autoenv.leave
+.autoenv
 
 # vscode
 .vscode
+
+# jupyter lab
+.ipynb_checkpoints
