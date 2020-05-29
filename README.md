@@ -3,15 +3,16 @@ The Example Codes of "Spark The Definitive Guide"
 
 ## Install 실습환경 구축
 - 책의 실습예제를 편하게 구동할 수 있게 docker를 사용합니다. Jupyter Notebook으로 구성되어있습니다. 
-- 사전에 [docker 설치](https://docs.docker.com/engine/install/)와 [git 설치](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)가 되어있어야합니다.
-### Cloen the repository 
+- 사전에 [docker 설치](https://docs.docker.com/engine/install/)와 [git 설치](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)가 필요합니다.
+
+### Clone the repository 
 아래 명령어로 repository 를 clone 한 후, 자신의 폴더로 이동합니다.
 ```shell
 git clone https://github.com/dream2globe/SparkDefinitiveGuide.git
 cd SparkDefinitiveGuide
 ```
 ### submodule 세팅
-  - '스파크 완벽가이드' 책의 [예제 파일](https://github.com/FVBros/Spark-The-Definitive-Guide/tree/a1f81d09687c227c1401f11d5e7ef1a49651a6f9)을 가져오기 위해 [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)로 구성되어있습니다. 아래 명령어를 실행하여 책 예제파일의 콘텐츠를 가져옵니다. 
+  - '스파크 완벽가이드' 책의 [예제 파일](https://github.com/FVBros/Spark-The-Definitive-Guide/tree/a1f81d09687c227c1401f11d5e7ef1a49651a6f9)을 가져오기 위해 [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)로 구성되어있습니다. 아래 명령어를 실행하여 책 예제 파일의 콘텐츠를 가져옵니다. 
 ```shell
 git submodule init
 git submodule update
