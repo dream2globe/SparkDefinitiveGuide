@@ -2,7 +2,7 @@ setup:
 	docker-compose up -d
 
 stop:
-	docker stop my-spark-lab
+	docker-compose down
 
 clean:
 	find . -type f -name "*.pyc" -delete
