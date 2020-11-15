@@ -1,35 +1,35 @@
-version: "2.4"
+version: "2"
 
 services:
-        db:
+        mariadb:
                 image: mariadb:latest
                 container_name: mariadb
                 volumes:
-                        - /home/shyeon/workspace/mysql/_dbdump:/var/lib/mysql
+                        - /home/shyeon/workspace/mysql:/var/lib/mysql
                 environment:
-                        - MYSQL_DATABASE=sparklab
-                        - MYSQL_ROOT_PASSWORD=9838
+                        MYSQL_ROOT_PASSWORD: admin
+                        MYSQL_USER: admin
+                        MYSQL_PASSWORD: admin
+                        MYSQL_DATABASE: metastore_db
                 ports:
-                        - "3306:3306"
+                        - 3306:3306
                 healthcheck:
-                        test: mysql -p9838 -Dsparklab -e "SHOW DATABASES"
-                        interval: 3s
-                        timeout: 1s
+                        test: mysql -padmin -uadmin -e "SHOW DATABASES"
+                        interval: 10s
+                        timeout: 3s
                         retries: 3
-
-        web:
-                #                build:
-                #                        context: .
-                #                        dockerfile: ./Dockerfile
-                image: dream2globe/my-spark-env
+        spark:
+                # image: dream2globe/my-spark-env
+                build: .
                 container_name: mysparklab
                 volumes:
-                        - ~/workspace/python/SparkDefinitiveGuide:/home/jovyan/work
+                        - /home/shyeon/workspace/spark/SparkDefinitiveGuide:/home/jovyan/work
                 ports:
-                        - "8888:8888"
-                          #                command:
-                          #                        - python
-                          #                        - app.py
+                        - 8888:8888
+                        - 4040:4040
+                        - 4041:4041
+                        - 9083:9083
                 depends_on:
-                        db:
+                        mariadb:
                                 condition: service_healthy
+
